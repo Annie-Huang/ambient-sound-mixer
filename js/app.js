@@ -24,6 +24,17 @@ class AmbientMixer {
       console.error('Failed to initialze app: ', error);
     }
   }
+
+  // Load all sound files
+  loadAllSounds() {
+    sounds.forEach((sound) => {
+      const audioUrl = `audio/${sound.file}`;
+      const success = this.soundManager.loadSound(sound.id, audioUrl);
+      if (!success) {
+        console.warn(`Could not load sound: ${sound.name} from ${audioUrl}`);
+      }
+    });
+  }
 }
 
 // Initialize app when DOM is ready.
