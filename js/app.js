@@ -18,7 +18,11 @@ class AmbientMixer {
   init() {
     try {
       // console.log('Initializing app...');
-      this.soundManager.loadSound('rain', 'audio/rain.mp3');
+
+      // this.soundManager.loadSound('rain', 'audio/rain.mp3');
+      // Load all sound files
+      this.loadAllSounds(); // can be check under devtool network tab, filter Media files
+
       this.isInitialized = true;
     } catch (error) {
       console.error('Failed to initialze app: ', error);
