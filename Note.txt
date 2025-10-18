@@ -1,0 +1,6 @@
+Ambient Sound Mixer - JavaScript OOP Project - 3.5+ Hours (https://www.youtube.com/watch?v=e-hGCPaRZYk)
+
+https://github.com/bradtraversy/ambient-sound-mixer
+https://github.com/Annie-Huang/ambient-sound-mixer
+
+----------------------------------------------------------------------
