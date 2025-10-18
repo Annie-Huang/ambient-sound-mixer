@@ -2,7 +2,7 @@ export class SoundManager {
   constructor() {
     this.audioElements = new Map();
     this.isPlaying = false;
-    console.log('Soundmanager created');
+    // console.log('Soundmanager created');
   }
 
   // Load a sound file
@@ -24,6 +24,21 @@ export class SoundManager {
     } catch (error) {
       console.error(`Failed to load sound ${error}`);
       return false;
+    }
+  }
+
+  // Play a specific sound
+  async playSound(soundId) {
+    const audio = this.audioElements.get(soundId);
+
+    if (audio) {
+      try {
+        await audio.play();
+        return true;
+      } catch (error) {
+        console.error(`Failed to play ${soundId}`, error);
+        return false;
+      }
     }
   }
 }
