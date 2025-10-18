@@ -1,4 +1,6 @@
-import { sounds, defaultPresets } from './soundData';
+// !!!! very important, all import needs to have .js in there, otherwise you will see error:
+// app.js:2  GET http://localhost:3000/js/soundData net::ERR_ABORTED 404 (Not Found)
+import { sounds, defaultPresets } from './soundData.js';
 
 class AmbientMixer {
   // Initialize dependencies and default state
