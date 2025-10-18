@@ -18,6 +18,9 @@ export class SoundManager {
       // if you do 'auto', you will need to make sure it preloads all the audio before anything.
       // But in mobile, it doesn't work because it takes longer to load, so we load the metadata first.
       audio.preload = 'metadata';
+
+      // Add sound to audio elements map
+      this.audioElements.set(soundId, audio);
     } catch (error) {
       console.error(`Failed to load sound ${error}`);
       return false;
