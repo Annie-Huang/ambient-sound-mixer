@@ -26,6 +26,8 @@ class AmbientMixer {
       // Render sound cards using our sound data
       this.ui.renderSoundCards(sounds);
 
+      this.setupEventListeners();
+
       // this.soundManager.loadSound('rain', 'audio/rain.mp3');
       // Load all sound files
       this.loadAllSounds(); // can be check under devtool network tab, filter Media files
@@ -34,6 +36,18 @@ class AmbientMixer {
     } catch (error) {
       console.error('Failed to initialze app: ', error);
     }
+  }
+
+  // Setup all event listeners
+  setupEventListeners() {
+    // Handle all clicks with event delegation
+    document.addEventListener('click', (e) => {
+      // Check if play button was clicked
+      if (e.target.closest('.play-btn')) {
+        const soundId = e.target.closest('.play-btn').dataset.sound;
+        console.log(soundId);
+      }
+    });
   }
 
   // Load all sound files
