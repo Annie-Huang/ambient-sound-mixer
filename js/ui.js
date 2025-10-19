@@ -69,4 +69,13 @@ export class UI {
 
     return card;
   }
+
+  // Render all sound cards,
+  renderSoundCards(sounds) {
+    this.soundCardsContainer.innerHTML = '';
+    sounds.forEach((sound) => {
+      const card = this.createSoundCard(sound);
+      this.soundCardsContainer.appendChild(card);
+    });
+  }
 }
