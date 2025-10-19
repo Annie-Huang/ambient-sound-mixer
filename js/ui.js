@@ -24,4 +24,15 @@ export class UI {
     this.timeSelect = document.getElementById('timerSelect');
     this.themeToggle = document.getElementById('themeToggle');
   }
+
+  // Create sound card HTML
+  createSoundCard(sound) {
+    const card = document.createElement('div');
+    card.className =
+      'sound-card bg-white/10 backdrop-blur-md rounded-2xl p-6 relative overflow-hidden transition-all duration-300';
+
+    // card.dataset.sound will create something like: <div data-sound='rain'
+    // card.dataset.soundId will create something like: <div data-sound-id='rain'
+    card.dataset.sound = sound.id;
+  }
 }
