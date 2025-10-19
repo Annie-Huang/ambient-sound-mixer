@@ -51,4 +51,19 @@ export class SoundManager {
       console.log(`Paused ${soundId}`);
     }
   }
+
+  // Set volume for a specific sound (0-100)
+  setVolume(soundId, volume) {
+    const audio = this.audioElements.get(soundId);
+
+    if (!audio) {
+      console.error(`Sound ${soundId} not found`);
+      return false;
+    }
+
+    // Convert 0-100. to 0-1
+    audio.volume = volume / 100;
+    console.log(`Volumne for ${soundId}: ${volume}`);
+    return true;
+  }
 }
