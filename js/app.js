@@ -2,13 +2,14 @@
 // app.js:2  GET http://localhost:3000/js/soundData net::ERR_ABORTED 404 (Not Found)
 import { sounds, defaultPresets } from './soundData.js';
 import { SoundManager } from './soundManager.js';
+import { UI } from './ui.js';
 
 class AmbientMixer {
   // Initialize dependencies and default state
   constructor() {
     // console.log('Initializing state...');
     this.soundManager = new SoundManager();
-    this.ui = null;
+    this.ui = new UI();
     this.presetManager = null;
     this.timer = null;
     this.currenctSoundState = {};
@@ -18,6 +19,12 @@ class AmbientMixer {
   init() {
     try {
       // console.log('Initializing app...');
+
+      // Initialize UI
+      this.ui.init();
+
+      // Render sound cards using our sound data
+      this.ui.renderSoundCards(sounds);
 
       // this.soundManager.loadSound('rain', 'audio/rain.mp3');
       // Load all sound files
