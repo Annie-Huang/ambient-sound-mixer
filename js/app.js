@@ -55,8 +55,9 @@ class AmbientMixer {
       if (e.target.classList.contains('volume-slider')) {
         const soundId = e.target.dataset.sound;
         const volume = parseInt(e.target.value);
-        // this.setSoundVolume(soundId, volume);
-        console.log(soundId, volume);
+
+        // console.log(soundId, volume);
+        this.setSoundVolume(soundId, volume);
       }
     });
   }
@@ -91,6 +92,15 @@ class AmbientMixer {
       this.soundManager.pauseSound(soundId);
       this.ui.updateSoundPlayButton(soundId, false);
     }
+  }
+
+  // Set sound volume
+  setSoundVolume(soundId, volume) {
+    // Update sound volume in manager
+    this.soundManager.setVolume(soundId, volume);
+
+    // Update visual display
+    this.ui.updateVolumeDisplay(soundId, volume);
   }
 }
 
