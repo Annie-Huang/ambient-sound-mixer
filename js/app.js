@@ -13,6 +13,7 @@ class AmbientMixer {
     this.presetManager = null;
     this.timer = null;
     this.currenctSoundState = {};
+    this.masterVolume = 100;
     this.isInitialized = false;
   }
 
@@ -121,6 +122,20 @@ class AmbientMixer {
 
     // Update visual display
     this.ui.updateVolumeDisplay(soundId, volume);
+  }
+
+  // Set master volume
+  setMasterVolume(volume) {
+    this.masterVolume = volume;
+
+    // Update the display
+    const masterVolumeValue = document.getElementById('masterVolumeValue');
+    if (masterVolumeValue) {
+      masterVolumeValue.textContent = `${volume}%`;
+    }
+
+    // Apply master volume to all currently playing sounds
+    this.applyMasterVolumeToAll();
   }
 }
 
