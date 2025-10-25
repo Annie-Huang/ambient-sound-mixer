@@ -60,6 +60,15 @@ class AmbientMixer {
         this.setSoundVolume(soundId, volume);
       }
     });
+
+    // Handle master volume slider
+    const masterVolumeSlider = document.getElementById('masterVolume');
+    if (masterVolumeSlider) {
+      masterVolumeSlider.addEventListener('input', (e) => {
+        const volume = parseInt(e.target.value);
+        this.setMasterVolume(volume);
+      });
+    }
   }
 
   // Load all sound files
