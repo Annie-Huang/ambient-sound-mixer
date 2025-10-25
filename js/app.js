@@ -137,6 +137,25 @@ class AmbientMixer {
     // Apply master volume to all currently playing sounds
     this.applyMasterVolumeToAll();
   }
+
+  // Apply master volume to all playing sounds
+  applyMasterVolumeToAll() {
+    for (const [soundId, audio] of this.soundManager.audioElements) {
+      if (!audio.paused) {
+        const card = document.querySelector(`[data-sound="${soundId}"]`);
+        const slider = card?.querySelector('.volume-slider');
+
+        if (slider) {
+          const individualVolume = parseInt(slider.value);
+          // Calculate effective volume (individual * master / 100)
+          const effectiveVolume = (individualVolume * this.masterVolume) / 100;
+
+          // Apply to the actual audio element
+          audio.volume = effectiveVolume / 100;
+        }
+      }
+    }
+  }
 }
 
 // Initialize app when DOM is ready.

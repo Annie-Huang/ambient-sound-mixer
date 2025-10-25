@@ -4,3 +4,6 @@ https://github.com/bradtraversy/ambient-sound-mixer
 https://github.com/Annie-Huang/ambient-sound-mixer
 
 ----------------------------------------------------------------------
+
+Each card can change volume
+Master can change volume of all currently playing cards to the master % of the current volume
