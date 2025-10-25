@@ -117,8 +117,17 @@ class AmbientMixer {
 
   // Set sound volume
   setSoundVolume(soundId, volume) {
-    // Update sound volume in manager
-    this.soundManager.setVolume(soundId, volume);
+    // // Update sound volume in manager
+    // this.soundManager.setVolume(soundId, volume);
+
+    // Calculate effective volume with master volume
+    const effectiveVolume = (volume * this.masterVolume) / 100;
+
+    // Update the sound volume with the scaled volume
+    const audio = this.soundManager.audioElements.get(soundId);
+    if (audio) {
+      audio.volume = effectiveVolume / 100;
+    }
 
     // Update visual display
     this.ui.updateVolumeDisplay(soundId, volume);
