@@ -173,6 +173,9 @@ class AmbientMixer {
 
     // Update visual display
     this.ui.updateVolumeDisplay(soundId, volume);
+
+    // Sync sounds
+    this.updateMainPlayButtonState();
   }
 
   // Set master volume
