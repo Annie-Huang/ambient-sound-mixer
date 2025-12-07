@@ -70,6 +70,13 @@ class AmbientMixer {
         this.setMasterVolume(volume);
       });
     }
+
+    // Handle master play/pause button
+    if (this.ui.playPauseButton) {
+      this.ui.playPauseButton.addEventListener('click', () => {
+        this.toggleAllSounds();
+      });
+    }
   }
 
   // Load all sound files
