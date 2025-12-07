@@ -12,7 +12,7 @@ class AmbientMixer {
     this.ui = new UI();
     this.presetManager = null;
     this.timer = null;
-    this.currenctSoundState = {};
+    this.currentSoundState = {};
     this.masterVolume = 100;
     this.isInitialized = false;
   }
