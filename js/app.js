@@ -124,6 +124,33 @@ class AmbientMixer {
       sounds.forEach((sound) => {
         this.ui.updateSoundPlayButton(sound.id, false);
       });
+    } else {
+      // Toggle sounds on
+      for (const [soundId, audio] of this.soundManager.audioElements) {
+        const card = document.querySelector(`[data-sound=${soundId}]`);
+        const slider = card?.querySelector('.volume-slider');
+
+        if (slider) {
+          let volume = parseInt(slider.value);
+
+          if (volume === 0) {
+            volume = 50;
+            slider.value = 50;
+            this.ui.updateVolumeDisplay(soundId, 50);
+          }
+
+          this.currentSoundState[soundId] = volume;
+
+          const effectiveVolume = (volume * this.masterVolume) / 100;
+          audio.volume = effectiveVolume / 100;
+          this.ui.updateSoundPlayButton(soundId, true);
+        }
+      }
+
+      // Play all sounds
+      this.soundManager.playAll();
+
+      this.ui.updateMainPlayButton(true);
     }
   }
 
