@@ -113,6 +113,9 @@ class AmbientMixer {
       this.soundManager.pauseSound(soundId);
       this.ui.updateSoundPlayButton(soundId, false);
     }
+
+    // Update main play button state
+    this.updateMainPlayButtonState();
   }
 
   // Toggle all sounds
