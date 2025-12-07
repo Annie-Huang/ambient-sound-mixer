@@ -115,6 +115,18 @@ class AmbientMixer {
     }
   }
 
+  // Toggle all sounds
+  toggleAllSounds() {
+    if (this.soundManager.isPlaying) {
+      // Toggle sounds off
+      this.soundManager.pauseAll();
+      this.ui.updateMainPlayButton(false);
+      sounds.forEach((sound) => {
+        this.ui.updateSoundPlayButton(sound.id, false);
+      });
+    }
+  }
+
   // Set sound volume
   setSoundVolume(soundId, volume) {
     // // Update sound volume in manager
