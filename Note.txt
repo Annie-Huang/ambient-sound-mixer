@@ -3,6 +3,9 @@ Ambient Sound Mixer - JavaScript OOP Project - 3.5+ Hours (https://www.youtube.c
 https://github.com/bradtraversy/ambient-sound-mixer
 https://github.com/Annie-Huang/ambient-sound-mixer
 
+Note:
+It does not generate enough clicks so Traversy unlisted this video in youtube.
+
 ----------------------------------------------------------------------
 
 Each card can change volume
